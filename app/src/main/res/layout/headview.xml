@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/linear_head"
+              android:background="#0f0fdd"
+              android:gravity="center"
+              android:layout_width="match_parent"
+              android:layout_height="200dp">
+        <TextView
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:id="@+id/textview_one"
+            android:text="我是第一种类型哦"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
