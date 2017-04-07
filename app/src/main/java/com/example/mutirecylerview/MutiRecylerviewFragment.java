@@ -36,9 +36,9 @@ public class MutiRecylerviewFragment extends Fragment {
         context = getActivity() ;
         list = new ArrayList<>();
 
-        list.add(R.drawable.sd16);
-        list.add(R.drawable.sd32);
-        list.add(R.drawable.lighthouse);
+        list.add(R.mipmap.ic_launcher);
+        list.add(R.mipmap.ic_launcher);
+        list.add(R.mipmap.ic_launcher);
 
         mRecylerview = (RecyclerView) view.findViewById(R.id.recylerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
