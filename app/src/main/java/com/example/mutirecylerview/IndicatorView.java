@@ -17,6 +17,7 @@ import android.view.View;
  */
 public class IndicatorView extends View implements ViewPager.OnPageChangeListener {
 
+    private static final String TAG = "IndicatorView" ;
     //指示器图标，这里是一个 drawable，包含两种状态，
     //选中和飞选中状态
     private Drawable mIndicator;
@@ -81,8 +82,14 @@ public class IndicatorView extends View implements ViewPager.OnPageChangeListene
     private void initIndicator() {
         //获取指示器的大小值。一般情况下是正方形的，也是时，你的美工手抖了一下，切出一个长方形来了，
         //不用怕，这里做了处理不会变形的
+
+        Log.d(TAG,"mIndicator.getIntrinsicWidth():"+mIndicator.getIntrinsicWidth());
+        Log.d(TAG,"mIndicator.getIntrinsicHeight():"+mIndicator.getIntrinsicHeight());
+        Log.d(TAG,"  mIndicator.getState():"+  mIndicator.getState());
+
         mIndicatorSize = Math.max(mIndicator.getIntrinsicWidth(),mIndicator.getIntrinsicHeight()) ;
         /*设置指示器的边框*/
+
         mIndicator.setBounds(0,0,mIndicator.getIntrinsicWidth(),mIndicator.getIntrinsicWidth());
     }
     /**
@@ -195,6 +202,7 @@ public class IndicatorView extends View implements ViewPager.OnPageChangeListene
         mIndicator.setState(SELECTED_STATE_SET) ;
         /*这里又开始绘图了*/
         mIndicator.draw(canvas);
+
 
     }
 

@@ -11,6 +11,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.holder.Holder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +30,10 @@ public class MutiRecylerviewFragment extends Fragment {
     RecyclerView mRecylerview ;
     private Context context ;
 
-    private ViewPager mViewPager ;
+
     private List<Integer> list ;
-    private IndicatorView indicatorView ;
+    ConvenientBanner convenientBanner ;
+
 
     @Nullable
     @Override
@@ -47,13 +53,17 @@ public class MutiRecylerviewFragment extends Fragment {
         mRecylerview.addItemDecoration(new SpacesItemDecoration(20));
         mRecylerview.setAdapter(mutiAdapter);
 
-        mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(list,context);
-        mViewPager.setAdapter(viewPagerAdapter);
-
-        indicatorView = (IndicatorView) view.findViewById(R.id.id_indicator);
-        indicatorView.setViewPager(mViewPager);
+        convenientBanner = (ConvenientBanner) view.findViewById(R.id.convenientBanner);
+        convenientBanner.setPages(new CBViewHolderCreator<LocalImageHolderView>() {
+            @Override
+            public LocalImageHolderView createHolder() {
+                return new LocalImageHolderView();
+            }
+        },list).setPageIndicator(new int[]{R.drawable.banner_unselect,R.drawable.banner_select})
+        .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL);
 
         return view;
     }
+
+
 }
